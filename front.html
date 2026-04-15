@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Veloira — متجر العطور</title>
+
+  
+  <link rel="stylesheet" href="assets/style.css">
+
+  
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  
+  <div id="loader" aria-hidden="false">
+    <div class="logo-spin">
+      <img src="brand.jpg" alt="logo small">
+    </div>
+    <div style="height:12px"></div>
+    <div style="color:var(--muted)">تحميل Veloira ...</div>
+  </div>
+
+  
+  <header>
+    <div class="brand">
+      <div class="logo">
+        
+        <img src="assets/brand.jpg" alt="Veloira logo">
+      </div>
+      <div>
+        <h1>Veloira</h1>
+        <div style="font-size:12px;color:var(--muted)">متجر العطور الرسمي</div>
+      </div>
+    </div>
+
+    <div class="cta">
+      <button class="cart-btn" id="openCart">
+        عرض السلة <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+  </header>
+
+  
+  <main>
+    <section class="hero" id="heroSection">
+      <h2>Veloira</h2>
+      
+      <p id="welcomeText" style="opacity:0;transform:translateY(6px);transition:all .7s ease">Velvet and Aura</p>
+
+      <div class="choose">
+        <button class="btn" data-filter="all" id="showAll">الكل</button>
+        <button class="btn" data-filter="male" id="showMale">رجالي</button>
+        <button class="btn" data-filter="female" id="showFemale">نسائي</button>
+      </div>
+    </section>
+
+    
+    <section class="products" id="productsGrid" aria-live="polite">
+    </section>
+  </main>
+
+  
+  <div class="modal-backdrop" id="qtyModal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <h4 id="modalTitle">الكمية</h4>
+      <p id="modalDesc">اختر كمية العلب التي تريد شرائها</p>
+      <div class="qty">
+        <input type="number" id="qtyInput" value="1" min="1">
+        <div style="flex:1"></div>
+      </div>
+      <button class="add-cart" id="addToCartBtn">اضافة للسلة</button>
+    </div>
+  </div>
+
+  
+  <aside class="cart-panel" id="cartPanel" aria-hidden="true">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <h3>سلة المشتريات</h3>
+      <button class="cart-btn" id="closeCart">إغلاق</button>
+    </div>
+
+    <div class="cart-items" id="cartItems"></div>
+
+    <div class="checkout">
+      <div class="total" id="cartTotal">الإجمالي: 0 ريال</div>
+      <button id="checkoutBtn">اتمام الشراء</button>
+    </div>
+  </aside>
+
+  
+  <div class="toast" id="toast">تمت الإضافة إلى السلة</div>
+
+  
+  <button class="back-to-top" id="backTop" title="العودة للأعلى">↑</button>
+
+  <footer>
+    © <span id="year"></span> Veloira — جميع الحقوق محفوظة
+  </footer>
+
+  
+  <script src="assets/javas.js" defer></script>
+</body>
+</html>

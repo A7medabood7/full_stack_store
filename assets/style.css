@@ -1,0 +1,121 @@
+:root{
+  --bg:#0b0b0b;
+  --panel:#0f0f10;
+  --muted:#bfb7a9;
+  --gold:#c9a66b;
+  --accent:#e9d8b7;
+  --glass: rgba(255,255,255,0.03);
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: "Inter", sans-serif;
+  background: linear-gradient(180deg,#050505 0%, #0b0b0b 100%);
+  color:var(--accent);
+  -webkit-font-smoothing:antialiased;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+
+#loader{
+  position:fixed;inset:0;display:flex;align-items:center;justify-content:center;
+    background:var(--bg);z-index:9999;flex-direction:column;
+}
+.logo-spin{
+  width:120px;height:120px;border-radius:16px;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.2));
+  border:1px solid rgba(201,166,107,0.12);
+  animation:spin 2s linear infinite;
+}
+.logo-spin img{max-width:86%;max-height:86%;filter:drop-shadow(0 6px 14px rgba(0,0,0,0.6));}
+@keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+
+
+header{padding:28px 32px;display:flex;align-items:center;justify-content:space-between}
+.brand{
+  display:flex;align-items:center;gap:14px;
+}
+.brand .logo{
+  width:68px;height:68px;border-radius:10px;overflow:hidden;background:transparent;
+  display:flex;align-items:center;justify-content:center;border:1px solid rgba(201,166,107,0.12);
+}
+.brand .logo img{width:92%}
+.brand h1{margin:0;font-family:'Cormorant Garamond', serif;font-size:28px;letter-spacing:3px;color:var(--gold)}
+.cta{display:flex;gap:12px;align-items:center}
+.cart-btn{
+  background:transparent;border:1px solid rgba(201,166,107,0.14);padding:8px 14px;border-radius:10px;color:var(--accent);
+  cursor:pointer;display:flex;gap:10px;align-items:center;font-weight:600;
+}
+.cart-count{background:var(--gold);color:#111;padding:4px 8px;border-radius:999px;font-weight:700;font-size:13px}
+
+
+.hero{
+  min-height:55vh;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;
+  gap:18px;padding:10px 20px;
+  animation:heroIn .9s ease forwards;opacity:0;transform:translateY(18px);
+}
+@keyframes heroIn{to{opacity:1;transform:none}}
+.hero h2{font-family:'Cormorant Garamond',serif;font-size:56px;margin:0;color:var(--accent);letter-spacing:6px}
+.hero p{margin:0;color:var(--muted);font-size:18px}
+.choose{margin-top:14px;display:flex;gap:18px}
+.btn{
+  padding:12px 18px;border-radius:10px;border:1px solid rgba(201,166,107,0.12);
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.12));
+  color:var(--accent);cursor:pointer;font-weight:600;
+}
+
+
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;padding:34px;max-width:1100px;margin:0 auto}
+.card{
+  background:var(--panel);border-radius:12px;padding:18px;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,0.03);
+  transition:transform .28s ease, box-shadow .28s ease;
+}
+.card:hover{transform:translateY(-8px) scale(1.02);box-shadow:0 20px 40px rgba(0,0,0,0.6)}
+.card .img{height:180px;border-radius:8px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.2));display:flex;align-items:center;justify-content:center;color:var(--muted)}
+.card h3{margin:12px 0 6px 0;font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--gold)}
+.card p{margin:0;color:var(--muted);font-size:14px}
+.buy-row{display:flex;gap:12px;align-items:center;margin-top:12px}
+.price{font-weight:700;color:var(--accent)}
+.buy-btn{margin-left:auto;padding:8px 12px;border-radius:8px;border:none;background:var(--gold);color:#0d0d0d;cursor:pointer;font-weight:700}
+.meta{font-size:12px;color:var(--muted);margin-top:8px}
+
+
+.modal-backdrop{position:fixed;inset:0;background:rgba(2,2,2,0.6);display:flex;align-items:center;justify-content:center;z-index:1000;opacity:0;pointer-events:none;transition:opacity .2s}
+.modal{background:linear-gradient(180deg, #0f0f10, #0b0b0b);padding:20px;border-radius:12px;width:360px;max-width:92%;border:1px solid rgba(201,166,107,0.09)}
+.modal.show{transform:translateY(0)}
+.modal-backdrop.show{opacity:1;pointer-events:auto}
+.modal h4{margin:0 0 8px 0;color:var(--gold);font-family:'Cormorant Garamond',serif}
+.modal p{color:var(--muted);margin:0 0 12px 0}
+.qty{display:flex;gap:8px;align-items:center;margin-bottom:12px}
+.qty input[type="number"]{width:90px;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--accent);font-size:16px;text-align:center}
+.add-cart{width:100%;padding:10px;border-radius:10px;border:none;background:var(--gold);color:#0b0b0b;font-weight:700;cursor:pointer}
+
+
+.cart-panel{position:fixed;top:0;bottom:0;right:-420px;width:420px;background:linear-gradient(180deg,#070707,#0a0a0a);z-index:1500;padding:18px;border-left:1px solid rgba(255,255,255,0.03);transition:right .36s cubic-bezier(.2,.9,.3,1)}
+.cart-panel.open{right:0}
+.cart-panel h3{margin-top:6px;color:var(--gold);font-family:'Cormorant Garamond',serif}
+.cart-items{margin-top:12px;max-height:60vh;overflow:auto}
+.cart-item{display:flex;gap:10px;padding:10px;border-radius:8px;background:rgba(255,255,255,0.02);margin-bottom:10px;align-items:center}
+.cart-item .mini{width:54px;height:54px;border-radius:8px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.18));display:flex;align-items:center;justify-content:center;color:var(--muted)}
+.cart-item .info{flex:1}
+.cart-item .info b{display:block;color:var(--gold)}
+.cart-item .qty-num{font-weight:700;color:var(--accent)}
+.checkout{margin-top:14px;display:flex;gap:12px;align-items:center}
+.checkout .total{flex:1;color:var(--muted)}
+.checkout button{padding:12px 14px;border-radius:10px;border:none;background:var(--gold);color:#0b0b0b;cursor:pointer;font-weight:800}
+
+
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:28px;background:#0e0e0e;padding:10px 16px;border-radius:10px;border:1px solid rgba(201,166,107,0.08);color:var(--accent);box-shadow:0 10px 30px rgba(0,0,0,0.6);opacity:0;pointer-events:none;transition:opacity .25s;z-index:2000}
+.toast.show{opacity:1;pointer-events:auto}
+
+.back-to-top{position:fixed;left:18px;bottom:18px;background:var(--glass);padding:10px;border-radius:999px;border:1px solid rgba(255,255,255,0.03);cursor:pointer;color:var(--muted)}
+footer{padding:30px 20px;color:var(--muted);text-align:center;font-size:13px}
+
+
+@media (max-width:720px){
+  .brand h1{font-size:20px}
+  .hero h2{font-size:36px}
+  .cart-panel{width:100%;right:-100%}
+}
